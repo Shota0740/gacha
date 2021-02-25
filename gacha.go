@@ -26,7 +26,8 @@ func DrawN(p *Player, n int) ([]*Card, map[Rarity]int) {
 }
 
 func draw() *Card {
-	num := rand.Intn(100)
+	rank := rand.Intn(100)
+	name := rand.Intn(100)
 
 	switch {
 	case rank < 80:
