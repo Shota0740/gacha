@@ -29,13 +29,57 @@ func draw() *Card {
 	num := rand.Intn(100)
 
 	switch {
-	case num < 80:
-		return &Card{Rarity: RarityN, Name: "スライム"}
-	case num < 95:
-		return &Card{Rarity: RarityR, Name: "オーク"}
-	case num < 99:
-		return &Card{Rarity: RaritySR, Name: "ドラゴン"}
+	case rank < 80:
+		switch {
+		case name < 10:
+			return &card{rarity: rarityN, name: "スライム"}
+		case name < 20:
+			return &card{rarity: rarityN, name: "スライムベス"}
+		case name < 30:
+			return &card{rarity: rarityN, name: "いたずらもぐら"}
+		case name < 40:
+			return &card{rarity: rarityN, name: "モーモン"}
+		case name < 50:
+			return &card{rarity: rarityN, name: "いっかくウサギ"}
+		case name < 60:
+			return &card{rarity: rarityN, name: "ドラキー"}
+		case name < 70:
+			return &card{rarity: rarityN, name: "おおきづち"}
+		case name < 80:
+			return &card{rarity: rarityN, name: "ゴースト"}
+		case name < 90:
+			return &card{rarity: rarityN, name: "リリパット"}
+		default:
+			return &card{rarity: rarityN, name: "ぶちスライム"}
+		}
+	case rank < 95:
+		switch {
+		case name < 25:
+			return &card{rarity: rarityR, name: "ばくだん岩"}
+		case name < 50:
+			return &card{rarity: rarityR, name: "わらいぶくろ"}
+		case name < 75:
+			return &card{rarity: rarityR, name: "スライムナイト"}
+		case name < 95:
+			return &card{rarity: rarityR, name: "メタルスライム"}
+		default:
+			return &card{rarity: rarityR, name: "はぐれメタル"}
+		}
+	case rank < 99:
+		switch {
+		case name < 34:
+			return &card{rarity: raritySR, name: "ゴールデンスライム"}
+		case name < 67:
+			return &card{rarity: raritySR, name: "キャプテン・クロウ"}
+		default:
+			return &card{rarity: raritySR, name: "バベルボブル"}
+		}
 	default:
-		return &Card{Rarity: RarityXR, Name: "イフリート"}
+		switch {
+		case name < 50:
+			return &card{rarity: rarityXR, name: "マスタードラゴン"}
+		default:
+			return &card{rarity: rarityXR, name: "オムド・ロレス"}
+		}
 	}
 }
